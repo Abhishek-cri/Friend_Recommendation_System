@@ -1,12 +1,12 @@
 {% extends "base.html"%}
 
     {% block content %}
+<div class="global-container" style="background: linear-gradient(#ad1396,#803700);">
 
-
-    <div class="global-container">
-        <div class="card login-form">
-        <div class="card-body">
-            <h3 class="card-title text-center">Log in to Django</h3>
+    <div class="global-container" style="background: linear-gradient(#ad1396,#803700);">
+        <div class="card login-form" style="box-shadow: 10px 10px 10px rgb(14, 0, 11); z-index: 10; width: 600px; height: 400px;">
+        <div class="card-body" style="background-color: rgb(21 205 82 / 50%);">
+            <h3 class="card-title text-center" style="color: brown; font-weight:400;">Login to FRS</h3>
             {% if messages %}
 
             {% for message in messages %}
@@ -16,10 +16,11 @@
             {% endfor %}
       
         {% endif %}
+        
             <div class="card-text">
                 <!--
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
-                <form method="post" >
+                <form method="post">
                     {% csrf_token %}
                     <!-- to error: add class "has-danger" -->
                     <div class="form-group">
@@ -28,7 +29,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <a href="#" style="float:right;font-size:12px;">Forgot password?</a>
+                        <a href="{% url 'reset_password' %}" style="float:right;font-size:12px;">Forgot password?</a>
                         <input type="password" name="password" class="form-control form-control-sm" id="exampleInputPassword1">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Sign in</button>
@@ -37,10 +38,11 @@
                         Don't have an account? <a href="{% url 'register_attempt' %}">Create One</a>
                     </div>
                 </form>
-            </div>
+        </div>
         </div>
     </div>
     </div>
+</div>
     
 
     {% endblock %}
